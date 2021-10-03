@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+<!--  服务名称 唯一  -->
+    <dubbo:application name="dubbo_consumer"/>
+<!--  注册在哪里  -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+<!--  订阅的是哪个服务接口 启动dubbo帮我去创建接口的jdk动态代理类，放入spring容器
+    id必须有值
+ -->
+    <dubbo:reference interface="com.itheima.service.UserService" id="abc"/>
+</beans>
